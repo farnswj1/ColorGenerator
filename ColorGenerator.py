@@ -89,7 +89,7 @@ class ColorGenerator(object):
         self.__canvas.place(x=325, y=125, anchor=tk.NW)
 
         # Box is used to show the current color
-        self.__box = self.__canvas.create_rectangle(0, 0, 250, 250, fill="#000000")
+        self.__box = self.__canvas.create_rectangle(0, 0, 252, 202, fill="#000000")
 
         # Hex color code label
         self.__hex_label = tk.Label(
@@ -118,7 +118,7 @@ class ColorGenerator(object):
         self.__hex_label.config(text=f"Hex: {hex_color_code}")
 
     
-    # Get the hex color code based on the RGB values 
+    # Get the hex color code based on the RGB values
     def __get_hex_color_code(self, red, green, blue):
         # Convert each value to hexadecimal notation
         hex_red = hex(red)[2:].zfill(2).upper()
