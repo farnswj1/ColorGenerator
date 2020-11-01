@@ -88,7 +88,12 @@ class ColorGenerator(object):
         self.__blue_scale.place(x=225, y=100, anchor=tk.NW)
 
         # Canvas is used to generate a rectangle inside of it
-        self.__canvas = tk.Canvas(self.__window, width=250, height=200)
+        self.__canvas = tk.Canvas(
+            self.__window,
+            width=250,
+            height=200,
+            cursor="spraycan"
+        )
         self.__canvas.place(x=325, y=125, anchor=tk.NW)
 
         # Box is used to show the current color
