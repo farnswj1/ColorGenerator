@@ -1,0 +1,2 @@
+# Color Generator
+This is a simple GUI that allows the user to experiment with different color codes and view their corresponding colors. The box on the right side of the screen will automatically change colors and the hex color code is updated as the user interacts with the sliders.
