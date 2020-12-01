@@ -154,8 +154,8 @@ class ColorGenerator(object):
     def __generate_random_color(self):
         # Change the RGB values (the update command will automatically run)
         self.__red_scale.set(randint(0, 255))
-        self.__blue_scale.set(randint(0, 255))
         self.__green_scale.set(randint(0, 255))
+        self.__blue_scale.set(randint(0, 255))
 
 
 # Execute the program
