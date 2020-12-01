@@ -11,6 +11,7 @@ code is updated as the user interacts with the sliders.
 
 # Imported modules
 import tkinter as tk
+from random import randint
 
 
 # Color Generator class
@@ -87,6 +88,18 @@ class ColorGenerator(object):
         )
         self.__blue_scale.place(x=225, y=100, anchor=tk.NW)
 
+        # Randomize button generates a random hex color
+        self.__randomize_button = tk.Button(
+            self.__window,
+            text="Randomize",
+            font=default_font,
+            cursor="star",
+            bg="#ffff00",
+            activebackground="#ffff00",
+            command=self.__generate_random_color
+        )
+        self.__randomize_button.place(x=450, y=125, width=250, height=40, anchor=tk.CENTER)
+
         # Canvas is used to generate a rectangle inside of it
         self.__canvas = tk.Canvas(
             self.__window,
@@ -94,7 +107,7 @@ class ColorGenerator(object):
             height=200,
             cursor="spraycan"
         )
-        self.__canvas.place(x=325, y=125, anchor=tk.NW)
+        self.__canvas.place(x=450, y=250, anchor=tk.CENTER)
 
         # Box is used to show the current color
         self.__box = self.__canvas.create_rectangle(0, 0, 252, 202, fill="#000000")
@@ -105,7 +118,7 @@ class ColorGenerator(object):
             text="Hex: #000000",
             font=hex_font,
         )
-        self.__hex_label.place(x=450, y=350, anchor=tk.CENTER)
+        self.__hex_label.place(x=450, y=375, anchor=tk.CENTER)
 
         # Run the tkinter loop
         self.__window.mainloop()
@@ -129,12 +142,20 @@ class ColorGenerator(object):
     # Get the hex color code based on the RGB values
     def __get_hex_color_code(self, red, green, blue):
         # Convert each value to hexadecimal notation
-        hex_red = hex(red)[2:].zfill(2).upper()
-        hex_green = hex(green)[2:].zfill(2).upper()
-        hex_blue = hex(blue)[2:].zfill(2).upper()
+        hex_red = f"{red:x}".zfill(2).upper()
+        hex_green = f"{green:x}".zfill(2).upper()
+        hex_blue = f"{blue:x}".zfill(2).upper()
 
         # Concatenate and return the string
         return f"#{hex_red}{hex_green}{hex_blue}"
+    
+
+    # Generate a random color and show the color on the screen
+    def __generate_random_color(self):
+        # Change the RGB values (the update command will automatically run)
+        self.__red_scale.set(randint(0, 255))
+        self.__blue_scale.set(randint(0, 255))
+        self.__green_scale.set(randint(0, 255))
 
 
 # Execute the program
