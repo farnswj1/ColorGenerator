@@ -140,7 +140,8 @@ class ColorGenerator(object):
 
     
     # Get the hex color code based on the RGB values
-    def __get_hex_color_code(self, red, green, blue):
+    @staticmethod
+    def __get_hex_color_code(red, green, blue):
         # Convert each value to hexadecimal notation
         hex_red = f"{red:x}".zfill(2).upper()
         hex_green = f"{green:x}".zfill(2).upper()
