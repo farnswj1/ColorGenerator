@@ -3,9 +3,9 @@ Justin Farnsworth
 Color Generator
 October 31, 2020
 
-This is a simple GUI that allows the user to experiment with different 
-color codes and view their corresponding colors. The box on the right 
-side of the screen will automatically change colors and the hex color 
+This is a simple GUI that allows the user to experiment with different
+color codes and view their corresponding colors. The box on the right
+side of the screen will automatically change colors and the hex color
 code is updated as the user interacts with the sliders.
 '''
 
@@ -120,9 +120,10 @@ class ColorGenerator(object):
         )
         self.__hex_label.place(x=450, y=375, anchor=tk.CENTER)
 
+    # Run the window loop
+    def run(self):
         # Run the tkinter loop
         self.__window.mainloop()
-    
 
     # When the sliders are used, update the screen based on the RGB values
     def __update(self, event=None):
@@ -138,7 +139,6 @@ class ColorGenerator(object):
         self.__canvas.itemconfig(self.__box, fill=hex_color_code)
         self.__hex_label.config(text=f"Hex: {hex_color_code}")
 
-    
     # Get the hex color code based on the RGB values
     @staticmethod
     def __get_hex_color_code(red, green, blue):
@@ -149,7 +149,6 @@ class ColorGenerator(object):
 
         # Concatenate and return the string
         return f"#{hex_red}{hex_green}{hex_blue}"
-    
 
     # Generate a random color and show the color on the screen
     def __generate_random_color(self):
@@ -161,4 +160,5 @@ class ColorGenerator(object):
 
 # Execute the program
 if __name__ == "__main__":
-    ColorGenerator()
+    app = ColorGenerator()
+    app.run()
